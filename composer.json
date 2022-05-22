@@ -1,0 +1,47 @@
+{
+    "name": "luqta/buscador-cursos",
+    "description": "Projeto para buscar os cursos no site da Alura",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Luqta\\BuscadorCursos\\": "src/"
+        },
+        "files": [
+            "functions.php"
+        ],
+        "classmap": [
+            "classErrada.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Luqta",
+            "email": "lucas.mts1812@hotmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4",
+        "symfony/dom-crawler": "^6.0.6",
+        "symfony/css-selector": "^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.6",
+        "phan/phan": "^5.3"
+    },
+    "scripts": {
+        "cs": "phpcs --standard=PSR12 src",
+        "phan": "phan --allow-polyfill-parser",
+        "test": "phpunit src\\Buscador.php",
+        "ls": "dir",
+            "check": [
+            "@cs",
+            "@phan",
+            "@test"
+        ],
+        "post-update-cmd": "@check"
+    },
+    "scripts-descriptions": {
+        "check": "Realiza todas as verificações com base no PHPCS, PHAN e PHPUNIT"
+    }
+}
